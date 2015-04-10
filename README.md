@@ -1,5 +1,5 @@
 # seashell
-Library of Great Scripts Under the Sea
+List of Usefule Functions for Everyday Scripts
 
 ```
 Just look at the world around you;
