@@ -17,14 +17,16 @@ function _main() {
     echo "Name: ${_name[$_nV]}"
     echo "Hash: ${_hash[$_nV]}"
     echo ""
-    if [ ! $_cV > ${#_hash[@]} ]; then
-	echo "Compatible Version: $_cV"
-	echo "Name: ${_name[$_cV]}"
-	echo "Hash: ${_hash[$_cV]}"
-    else
-	echo "The compatible version is newer than what Eric knows"
-	echo "Please find a better Eric. Good bye"
-	exit 1
+    if [ ! -z "$_cV" ]; then
+	if [ ! "$_cV" > ${#_hash[@]} ]; then
+	    echo "Compatible Version: $_cV"
+	    echo "Name: ${_name[$_cV]}"
+	    echo "Hash: ${_hash[$_cV]}"
+	else
+	    echo "The compatible version is newer than what Eric knows"
+	    echo "Please find a better Eric. Good bye"
+	    exit 1
+	fi
     fi
 
     cd $(dirname $0)
