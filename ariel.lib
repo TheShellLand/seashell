@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Library of Shell Functions
+
+
+function _amiroot() { id|grep "^uid=0" 2>/dev/null >/dev/null; if [ $? == 1 ]; then echo "Run as root"; 	exit 1; fi; } # Use this if script needs to be run as root
+function _cd2script() { cd $(dirname $0); } # Change directory to running script
+function _pinglocal(){ ping -c 1 127.0.0.1 2>/dev/null >/dev/null; if [ "$?" == "1" ]; then echo "Please check your local networking. There's something wrong"; fi; } # Check the local network interface is functioning
+
+
+
+# main
+
+echo "List of available functions:";
+cat $0 | grep -oP "(?<=^function ).*$" | sed "s/[(].*[#]/\t/"
