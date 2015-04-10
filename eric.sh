@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Searches and imports shell library
 
