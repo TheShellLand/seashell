@@ -1,2 +1,2 @@
 # seashell
-Library of Great Shells Under the Sea
+Library of Great Scripts Under the Sea
