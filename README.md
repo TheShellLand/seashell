@@ -1,5 +1,5 @@
 # seashell
-List of Usefule Functions for Everyday Scripts
+List of Useful Functions for Everyday Scripts
 
 ```
 Just look at the world around you;
