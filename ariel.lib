@@ -12,7 +12,7 @@ function _pinglocal(){ ping -c 1 127.0.0.1 2>/dev/null >/dev/null; if [ "$?" == 
 
 # main
 
-if [ "$1" == help ]; then
+if [ "$1" == -list ]; then
     echo "List of available functions:";
     cat $0 | grep -oP "(?<=^function ).*$" | sed "s/[(].*[#]/\t/"
 fi
