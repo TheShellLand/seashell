@@ -8,7 +8,7 @@ function _findariel() {
     _cV=$1	# Compatible Version
 
     _name[1]=ariel.lib
-    _hash[1]=902c9ea134fbd1f5b45cadf2a224c932
+    _hash[1]=4052bd6a155b42fe2a7ff38f3679dfde
     unset _name[0]
     unset _hash[0]
 
@@ -57,7 +57,7 @@ function _findariel() {
 		    export _ariel=$line
 		    return 0
 		else
-		    echo "Not Compatible: $line"
+		    echo "Not Compatible: $_hashV $line"
 		    cd ..
 		fi
 	    done < $_tmp
