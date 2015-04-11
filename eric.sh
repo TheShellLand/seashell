@@ -4,7 +4,7 @@
 
 
 
-function _main() {
+function _findariel() {
     _cV=$1	# Compatible Version
 
     _name[1]=ariel.lib
@@ -75,4 +75,4 @@ function _main() {
 
 # main
 
-_main
+_findariel
