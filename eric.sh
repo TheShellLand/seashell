@@ -5,14 +5,19 @@
 
 
 function _findariel() {
+    export _pwd="$(pwd)"
     _cV=$1	# Compatible Version
 
     _name[1]=ariel.lib
     _hash[1]=4052bd6a155b42fe2a7ff38f3679dfde
+    _name[2]=ariel.lib
+    _hash[2]=763263796ba740ab5d3e7275b5fe70f0
     unset _name[0]
     unset _hash[0]
 
     _nV=$(echo ${#_hash[@]})	# Newest Version
+    echo "== ariel finder ==================================="
+    echo ""
     echo "Newest Version: $_nV"
     echo "Name: ${_name[$_nV]}"
     echo "Hash: ${_hash[$_nV]}"
@@ -55,6 +60,8 @@ function _findariel() {
 		if [ "$_hashV" == "${_hash[$_cV]}" ]; then
 		    echo "Compatible: $_hashV $line"
 		    export _ariel=$line
+		    echo ""
+		    echo "== END ariel finder ==============================="
 		    return 0
 		else
 		    echo "Not Compatible: $_hashV $line"
@@ -65,12 +72,18 @@ function _findariel() {
 	    if [ $(pwd) == "/" ]; then
 		echo "Ariel cannot be found"
 		echo "You have no library on this system. Good bye"
+		echo ""
+		echo "== END ariel finder ==============================="
 		exit 1
 	    fi
-
 	fi
-	
     done
+
+
+## You want to copy these three lines to the beginning of all your other functions()
+#_findariel 1 || exit 1
+#. $_ariel || exit 1
+#cd $_pwd
 
 }
 
