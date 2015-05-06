@@ -3,7 +3,8 @@
 # Complete Library of Shell Commands
 
 
-function _amiroot() { id|grep "^uid=0" 2>/dev/null >/dev/null; if [ $? == 1 ]; then echo "Run as root"; 	exit 1; fi; } # Use this if script needs to be run as root
+function _amiroot() { id|grep "^uid=0" 2>/dev/null >/dev/null; if [ $? == 1 ]; then echo "Run as root"; exit 1; fi; } # Use this if script needs to be run as root
+function _rootcheck() { if [ "$EUID" -ne 0 ]; then echo "This script must be run as root"; exit 1; fi; } # Another way to check for root privileges
 function _cd2script() { cd $(dirname $0); } # Change directory to running script
 function _ecryptfnek() { echo "Passphrase: "; read -s _pw; echo $_pw | ecryptfs-add-passphrase --fnek; return 0; }; # Add ecrypt passphrase and fnek into keychain
 function _pinglocal(){ ping -c 1 127.0.0.1 2>/dev/null >/dev/null; if [ "$?" == "1" ]; then echo "Please check your local networking. There's something wrong"; fi; } # Check the local network interface is functioning
